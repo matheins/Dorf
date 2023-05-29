@@ -1,4 +1,4 @@
-import { SiteConfig } from "@/types";
+import { SiteConfig } from "@/types"
 
 export const siteConfig: SiteConfig = {
   name: "Dorf forms",
@@ -9,4 +9,4 @@ export const siteConfig: SiteConfig = {
     twitter: "https://twitter.com/matheins",
     github: "https://github.com/matheins/dorf-forms",
   },
-};
+}

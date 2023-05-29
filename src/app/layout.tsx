@@ -1,19 +1,21 @@
-import "./globals.css";
-import localFont from "next/font/local";
-import { Inter as FontSans } from "next/font/google";
-import { siteConfig } from "@/config/site";
-import { ThemeProvider } from "@/components/theme-provider";
-import { Analytics } from "@vercel/analytics/react";
-import { TailwindIndicator } from "@/components/tailwind-indicator";
-import { cn } from "@/lib/utils";
-import { Toaster } from "@/components/ui/toaster";
+import "./globals.css"
 
-const fontSans = FontSans({ subsets: ["latin"], variable: "--font-sans" });
+import { Inter as FontSans } from "next/font/google"
+import localFont from "next/font/local"
+import { Analytics } from "@vercel/analytics/react"
+
+import { siteConfig } from "@/config/site"
+import { cn } from "@/lib/utils"
+import { Toaster } from "@/components/ui/toaster"
+import { TailwindIndicator } from "@/components/tailwind-indicator"
+import { ThemeProvider } from "@/components/theme-provider"
+
+const fontSans = FontSans({ subsets: ["latin"], variable: "--font-sans" })
 
 const fontHeading = localFont({
   src: "../assets/fonts/CalSans-SemiBold.woff2",
   variable: "--font-heading",
-});
+})
 
 export const metadata = {
   title: {
@@ -54,12 +56,12 @@ export const metadata = {
     apple: "/apple-touch-icon.png",
   },
   manifest: `${siteConfig.url}/site.webmanifest`,
-};
+}
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode;
+  children: React.ReactNode
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
@@ -79,5 +81,5 @@ export default function RootLayout({
         </ThemeProvider>
       </body>
     </html>
-  );
+  )
 }
