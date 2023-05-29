@@ -10,7 +10,7 @@ export const env = createEnv({
     // GITHUB_CLIENT_ID: z.string().min(1),
     // GITHUB_CLIENT_SECRET: z.string().min(1),
     // GITHUB_ACCESS_TOKEN: z.string().min(1),
-    // DATABASE_URL: z.string().min(1),
+    DATABASE_URL: z.string().min(1),
     // SMTP_FROM: z.string().min(1),
     // POSTMARK_API_TOKEN: z.string().min(1),
     // POSTMARK_SIGN_IN_TEMPLATE: z.string().min(1),
@@ -21,7 +21,7 @@ export const env = createEnv({
   },
   runtimeEnv: {
     NEXTAUTH_URL: process.env.NEXTAUTH_URL,
-    // DATABASE_URL: process.env.DATABASE_URL,
+    DATABASE_URL: process.env.DATABASE_URL,
     // SMTP_FROM: process.env.SMTP_FROM,
     // POSTMARK_API_TOKEN: process.env.POSTMARK_API_TOKEN,
     // POSTMARK_SIGN_IN_TEMPLATE: process.env.POSTMARK_SIGN_IN_TEMPLATE,
