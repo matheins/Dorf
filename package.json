@@ -2,8 +2,13 @@
   "name": "dorf-forms",
   "version": "0.1.0",
   "private": true,
+  "author": {
+    "name": "matheins",
+    "url": "https://twitter.com/matheins"
+  },
   "scripts": {
     "dev": "next dev",
+    "turbo": "next dev --turbo",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -49,5 +54,12 @@
     "tailwindcss-animate": "^1.0.5",
     "typescript": "5.0.4",
     "zod": "^3.21.4"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.6.3",
+    "@commitlint/config-conventional": "^17.6.3",
+    "@ianvs/prettier-plugin-sort-imports": "^4.0.0",
+    "husky": "^8.0.3",
+    "pretty-quick": "^3.1.3"
   }
 }
