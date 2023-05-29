@@ -12,7 +12,7 @@ const getForms = async () => {
   return forms
 }
 
-export const Home = async () => {
+const Home = async () => {
   const forms = await getForms()
   return (
     <div>
@@ -25,3 +25,5 @@ export const Home = async () => {
     </div>
   )
 }
+
+export default Home
