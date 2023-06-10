@@ -1,69 +1,172 @@
-export function H1({ children }: { children: React.ReactNode }) {
-  return (
-    <h1 className="font-heading scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
-      {children}
-    </h1>
-  )
-}
+import * as React from "react"
 
-export function H2({ children }: { children: React.ReactNode }) {
-  return (
-    <h2 className="font-heading scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0">
-      {children}
-    </h2>
-  )
-}
+import { cn } from "@/lib/utils"
 
-export function H3({ children }: { children: React.ReactNode }) {
-  return (
-    <h3 className="font-heading scroll-m-20 text-2xl font-semibold tracking-tight">
-      {children}
-    </h3>
-  )
-}
+const TypographyH1 = React.forwardRef<
+  HTMLHeadingElement,
+  React.HTMLAttributes<HTMLHeadingElement>
+>(({ className, ...props }, ref) => (
+  <h1
+    className={cn(
+      "font-heading scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl",
+      className
+    )}
+    ref={ref}
+    {...props}
+  />
+))
+TypographyH1.displayName = "TypographyH1"
 
-export function H4({ children }: { children: React.ReactNode }) {
-  return (
-    <h4 className="font-heading scroll-m-20 text-xl font-semibold tracking-tight">
-      {children}
-    </h4>
-  )
-}
+const TypographyH2 = React.forwardRef<
+  HTMLHeadingElement,
+  React.HTMLAttributes<HTMLHeadingElement>
+>(({ className, ...props }, ref) => (
+  <h2
+    className={cn(
+      "font-heading scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0",
+      className
+    )}
+    ref={ref}
+    {...props}
+  />
+))
+TypographyH2.displayName = "TypographyH2"
 
-export function P({ children }: { children: React.ReactNode }) {
-  return <p className="leading-7 [&:not(:first-child)]:mt-6">{children}</p>
-}
+const TypographyH3 = React.forwardRef<
+  HTMLHeadingElement,
+  React.HTMLAttributes<HTMLHeadingElement>
+>(({ className, ...props }, ref) => (
+  <h3
+    ref={ref}
+    className={cn(
+      "font-heading scroll-m-20 text-2xl font-semibold tracking-tight",
+      className
+    )}
+    {...props}
+  />
+))
+TypographyH3.displayName = "TypographyH3"
 
-export function Blockquote({ children }: { children: React.ReactNode }) {
-  return (
-    <blockquote className="mt-6 border-l-2 pl-6 italic">{children}</blockquote>
-  )
-}
+const TypographyH4 = React.forwardRef<
+  HTMLHeadingElement,
+  React.HTMLAttributes<HTMLHeadingElement>
+>(({ className, ...props }, ref) => (
+  <h4
+    ref={ref}
+    className={cn(
+      "font-heading scroll-m-20 text-xl font-semibold tracking-tight",
+      className
+    )}
+    {...props}
+  />
+))
+TypographyH4.displayName = "TypographyH4"
 
-export function Ul({ children }: { children: React.ReactNode }) {
-  return <ul className="my-6 ml-6 list-disc [&>li]:mt-2">{children}</ul>
-}
+const TypographyP = React.forwardRef<
+  HTMLParagraphElement,
+  React.HTMLAttributes<HTMLParagraphElement>
+>(({ className, ...props }, ref) => (
+  <p
+    ref={ref}
+    className={cn("leading-7 [&:not(:first-child)]:mt-6", className)}
+    {...props}
+  />
+))
+TypographyP.displayName = "TypographyP"
 
-export function InlineCode({ children }: { children: React.ReactNode }) {
-  return (
-    <ul className="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold">
-      {children}
-    </ul>
-  )
-}
+const TypographyBlockquote = React.forwardRef<
+  HTMLQuoteElement,
+  React.HTMLAttributes<HTMLQuoteElement>
+>(({ className, ...props }, ref) => (
+  <blockquote
+    ref={ref}
+    className={cn("mt-6 border-l-2 pl-6 italic", className)}
+    {...props}
+  />
+))
+TypographyBlockquote.displayName = "TypographyBlockquote"
 
-export function Lead({ children }: { children: React.ReactNode }) {
-  return <p className="text-xl text-muted-foreground">{children}</p>
-}
+const TypographyUl = React.forwardRef<
+  HTMLUListElement,
+  React.HTMLAttributes<HTMLUListElement>
+>(({ className, ...props }, ref) => (
+  <ul
+    ref={ref}
+    className={cn("my-6 ml-6 list-disc [&>li]:mt-2", className)}
+    {...props}
+  />
+))
+TypographyUl.displayName = "TypographyUl"
 
-export function Large({ children }: { children: React.ReactNode }) {
-  return <div className="text-lg font-semibold">{children}</div>
-}
+const TypographyInlineCode = React.forwardRef<
+  HTMLUListElement,
+  React.HTMLAttributes<HTMLUListElement>
+>(({ className, ...props }, ref) => (
+  <ul
+    ref={ref}
+    className={cn(
+      "relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold"
+    )}
+    {...props}
+  />
+))
+TypographyInlineCode.displayName = "TypographyInlineCode"
 
-export function Small({ children }: { children: React.ReactNode }) {
-  return <small className="text-sm font-medium leading-none">{children}</small>
-}
+const TypographyLead = React.forwardRef<
+  HTMLParagraphElement,
+  React.HTMLAttributes<HTMLParagraphElement>
+>(({ className, ...props }, ref) => (
+  <p
+    ref={ref}
+    className={cn("text-xl text-muted-foreground", className)}
+    {...props}
+  />
+))
+TypographyLead.displayName = "TypographyLead"
 
-export function Muted({ children }: { children: React.ReactNode }) {
-  return <p className="text-sm text-muted-foreground">{children}</p>
+const TypographyLarge = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
+>(({ className, ...props }, ref) => (
+  <div
+    ref={ref}
+    className={cn("text-lg font-semibold", className)}
+    {...props}
+  />
+))
+TypographyLarge.displayName = "TypographyLarge"
+
+const TypographySmall = React.forwardRef<
+  HTMLElement,
+  React.HTMLAttributes<HTMLElement>
+>(({ className, ...props }, ref) => (
+  <small
+    ref={ref}
+    className={cn("text-sm font-medium leading-none", className)}
+    {...props}
+  />
+))
+TypographySmall.displayName = "TypographySmall"
+
+const TypographyMuted = React.forwardRef<
+  HTMLParagraphElement,
+  React.HTMLAttributes<HTMLParagraphElement>
+>(({ className, ...props }, ref) => (
+  <p ref={ref} className={cn("text-sm text-muted-foreground")} {...props} />
+))
+TypographyMuted.displayName = "TypographyMuted"
+
+export {
+  TypographyH1,
+  TypographyH2,
+  TypographyH3,
+  TypographyH4,
+  TypographyP,
+  TypographyBlockquote,
+  TypographyUl,
+  TypographyInlineCode,
+  TypographyLead,
+  TypographyLarge,
+  TypographySmall,
+  TypographyMuted,
 }
