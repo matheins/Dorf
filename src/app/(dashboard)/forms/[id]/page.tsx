@@ -38,20 +38,20 @@ const Form = async ({ params: { id } }: { params: { id: string } }) => {
             <Link className="text-muted-foreground" href="/forms">
               Your forms
             </Link>
-            <span className="px-2 text-muted-foreground">/</span>
+            <span className="text-muted-foreground px-2">/</span>
             <span>{form.title}</span>
           </>
         }
         text="Explore submissions."
       >
-        <div className="flex flex-col md:flex-row gap-2 justify-end w-full md:w-fit">
+        <div className="flex w-full flex-col justify-end gap-2 md:w-fit md:flex-row">
           <Link
             href={`/f/${form.id}`}
             target="_blank"
             className={buttonVariants({ variant: "outline" })}
           >
             Preview
-            <ExternalLinkIcon className="w-4 h-4 ml-2" />
+            <ExternalLinkIcon className="ml-2 h-4 w-4" />
           </Link>
           <Link href={`/forms/${form.id}/edit`} className={buttonVariants()}>
             Edit

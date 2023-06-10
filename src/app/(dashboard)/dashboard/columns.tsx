@@ -124,7 +124,7 @@ export const columns: ColumnDef<FormWithFields>[] = [
         <div className="inline-flex items-center">
           <CircleIcon
             className={cn(
-              "h-2 w-2 mr-2 text-transparent",
+              "mr-2 h-2 w-2 text-transparent",
               form.published ? "fill-green-600" : "fill-yellow-600"
             )}
           />
@@ -195,12 +195,12 @@ export const columns: ColumnDef<FormWithFields>[] = [
                 >
                   {!form.published ? (
                     <>
-                      <EyeIcon className="w-4 h-4 mr-2" />
+                      <EyeIcon className="mr-2 h-4 w-4" />
                       <span>Publish</span>
                     </>
                   ) : (
                     <>
-                      <EyeOffIcon className="w-4 h-4 mr-2" />
+                      <EyeOffIcon className="mr-2 h-4 w-4" />
                       <span>Unpublish</span>
                     </>
                   )}
@@ -210,25 +210,25 @@ export const columns: ColumnDef<FormWithFields>[] = [
                     copyUrl({ url: `${siteConfig.url}/f/${form.id}` })
                   }
                 >
-                  <CopyIcon className="w-4 h-4 mr-2" />
+                  <CopyIcon className="mr-2 h-4 w-4" />
                   <span>Copy link</span>
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem disabled={!form.published} asChild>
                   <Link href={`/f/${form.id}`} target="_blank">
-                    <ExternalLinkIcon className="w-4 h-4 mr-2" />
+                    <ExternalLinkIcon className="mr-2 h-4 w-4" />
                     <span>Preview form</span>
                   </Link>
                 </DropdownMenuItem>
                 <Link href={`/forms/${form.id}/edit`}>
                   <DropdownMenuItem>
-                    <PencilIcon className="w-4 h-4 mr-2" />
+                    <PencilIcon className="mr-2 h-4 w-4" />
                     <span>Edit form</span>
                   </DropdownMenuItem>
                 </Link>
                 <Link href={`/forms/${form.id}`}>
                   <DropdownMenuItem>
-                    <InboxIcon className="w-4 h-4 mr-2" />
+                    <InboxIcon className="mr-2 h-4 w-4" />
                     <span> View submissions</span>
                   </DropdownMenuItem>
                 </Link>
@@ -236,7 +236,7 @@ export const columns: ColumnDef<FormWithFields>[] = [
               <DropdownMenuSeparator />
               <AlertDialogTrigger asChild>
                 <DropdownMenuItem className="text-destructive">
-                  <Trash2 className="w-4 h-4 mr-2" />
+                  <Trash2 className="mr-2 h-4 w-4" />
                   <span>Archive form</span>
                 </DropdownMenuItem>
               </AlertDialogTrigger>

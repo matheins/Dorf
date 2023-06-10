@@ -20,7 +20,7 @@ export const InputRequiredHint = ({
       {required && (
         <TooltipProvider>
           <Tooltip>
-            <TooltipTrigger className="flex absolute -top-2 -right-2 bg-muted  rounded-full w-4 h-4 items-center justify-center text-sm text-center font-bold">
+            <TooltipTrigger className="bg-muted absolute -right-2 -top-2 flex  h-4 w-4 items-center justify-center rounded-full text-center text-sm font-bold">
               <span className="relative top-[2px]">*</span>
             </TooltipTrigger>
             <TooltipContent>Required</TooltipContent>

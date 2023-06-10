@@ -105,7 +105,7 @@ const TypographyInlineCode = React.forwardRef<
   <ul
     ref={ref}
     className={cn(
-      "relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold"
+      "bg-muted relative rounded px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold"
     )}
     {...props}
   />
@@ -118,7 +118,7 @@ const TypographyLead = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <p
     ref={ref}
-    className={cn("text-xl text-muted-foreground", className)}
+    className={cn("text-muted-foreground text-xl", className)}
     {...props}
   />
 ))
@@ -152,7 +152,7 @@ const TypographyMuted = React.forwardRef<
   HTMLParagraphElement,
   React.HTMLAttributes<HTMLParagraphElement>
 >(({ className, ...props }, ref) => (
-  <p ref={ref} className={cn("text-sm text-muted-foreground")} {...props} />
+  <p ref={ref} className={cn("text-muted-foreground text-sm")} {...props} />
 ))
 TypographyMuted.displayName = "TypographyMuted"
 

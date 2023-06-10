@@ -6,12 +6,12 @@ import { TypographyH1, TypographyLead } from "@/components/typography"
 
 const FormSuccess = async ({ params }: { params: { id: string } }) => {
   return (
-    <div className="h-[80vh] items-center justify-center flex flex-col">
+    <div className="flex h-[80vh] flex-col items-center justify-center">
       <div className="space-y-8 text-center">
         <TypographyH1>Success</TypographyH1>
         <TypographyLead>Form submitted successfully</TypographyLead>
         <Link href="/" className={buttonVariants({ variant: "ghost" })}>
-          Start building your own <ArrowRight className="h-4 w-4 ml-2" />
+          Start building your own <ArrowRight className="ml-2 h-4 w-4" />
         </Link>
       </div>
     </div>

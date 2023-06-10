@@ -23,11 +23,11 @@ export function DataTablePagination<TData>({
   table,
 }: DataTablePaginationProps<TData>) {
   return (
-    <div className="flex-col md:flex-row gap-4 cols-1 flex items-center justify-between px-2">
-      <div className="col-span-1 flex-1 text-sm text-muted-foreground">
+    <div className="cols-1 flex flex-col items-center justify-between gap-4 px-2 md:flex-row">
+      <div className="text-muted-foreground col-span-1 flex-1 text-sm">
         {table.getCoreRowModel().rows.length} row(s)
       </div>
-      <div className="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-6 lg:space-x-8">
+      <div className="flex flex-col items-center space-y-4 md:flex-row md:space-x-6 md:space-y-0 lg:space-x-8">
         <div className="flex items-center space-x-2">
           <p className="text-sm font-medium">Rows per page</p>
           <Select
@@ -52,7 +52,7 @@ export function DataTablePagination<TData>({
           Page {table.getState().pagination.pageIndex + 1} of{" "}
           {table.getPageCount()}
         </div>
-        <div className="flex items-center space-x-2 justify-end">
+        <div className="flex items-center justify-end space-x-2">
           <Button
             variant="outline"
             className="hidden h-8 w-8 p-0 lg:flex"

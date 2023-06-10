@@ -257,7 +257,7 @@ const OptionsForm = ({ onChange, options: initData }: OptionsFormProps) => {
     <div className="space-y-2">
       <div className="flex flex-col gap-y-2 divide-y">
         {options?.map((option, index) => (
-          <div className="flex flex-row justify-between items-center font-medium text-xs truncate">
+          <div className="flex flex-row items-center justify-between truncate text-xs font-medium">
             <div>{option}</div>
             <Button onClick={() => removeOption(index)} variant={"ghost"}>
               <XIcon className="h-4 w-4" />
@@ -276,7 +276,7 @@ const OptionsForm = ({ onChange, options: initData }: OptionsFormProps) => {
         </FormItem>
 
         <Button variant={"secondary"} onClick={form.handleSubmit(onSubmit)}>
-          <Icons.add className="h-4 w-4 mr-2" />
+          <Icons.add className="mr-2 h-4 w-4" />
           Add option
         </Button>
       </div>

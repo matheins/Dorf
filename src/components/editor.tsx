@@ -85,7 +85,7 @@ export const Editor = ({ form }: { form: FormWithFields }) => {
               <Button variant="outline">
                 <CircleIcon
                   className={cn(
-                    "h-2 w-2 mr-2 text-transparent",
+                    "mr-2 h-2 w-2 text-transparent",
                     form.published ? "fill-green-600" : "fill-yellow-600"
                   )}
                 />
@@ -117,7 +117,7 @@ export const Editor = ({ form }: { form: FormWithFields }) => {
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button disabled={!form.published}>
-              Share <ShareIcon className="w-4 h-4 ml-2" />
+              Share <ShareIcon className="ml-2 h-4 w-4" />
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent className="w-56">
@@ -127,7 +127,7 @@ export const Editor = ({ form }: { form: FormWithFields }) => {
                   copyLinkToClipboard({ formId: form.id })
                 }}
               >
-                <Icons.copy className="h-4 w-4 mr-2" />
+                <Icons.copy className="mr-2 h-4 w-4" />
                 <span>Copy link</span>
                 <DropdownMenuShortcut>⌘C</DropdownMenuShortcut>
               </DropdownMenuItem>
@@ -136,7 +136,7 @@ export const Editor = ({ form }: { form: FormWithFields }) => {
         </DropdownMenu>
       </div>
       <Tabs defaultValue="editor" className="container max-w-3xl">
-        <TabsList className="grid grid-cols-2 w-[400px] mx-auto mb-8">
+        <TabsList className="mx-auto mb-8 grid w-[400px] grid-cols-2">
           <TabsTrigger value="editor">Editor</TabsTrigger>
           <TabsTrigger value="preview">Preview</TabsTrigger>
         </TabsList>
@@ -147,7 +147,7 @@ export const Editor = ({ form }: { form: FormWithFields }) => {
 
           <EditFieldSheet formId={form.id}>
             <Button variant={"ghost"} className="mx-auto flex">
-              <PlusCircleIcon className={"h-4 w-4 mr-2"} />
+              <PlusCircleIcon className={"mr-2 h-4 w-4"} />
               Add field
             </Button>
           </EditFieldSheet>

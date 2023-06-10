@@ -37,7 +37,7 @@ const Form = async ({ params }: { params: { id: string } }) => {
         <TypographyH1>{form.title}</TypographyH1>
         <TypographyLead>{form.description}</TypographyLead>
       </div>
-      <Separator className="mt-4 mb-8" />
+      <Separator className="mb-8 mt-4" />
       <FormRenderer form={form} />
     </div>
   )

@@ -8,9 +8,9 @@ export default function FormLayout({
   children: React.ReactNode
 }) {
   return (
-    <div className="container max-w-3xl my-8">
+    <div className="container my-8 max-w-3xl">
       {children}
-      <div className="flex text-center mt-8 justify-center">
+      <div className="mt-8 flex justify-center text-center">
         <Link href="/" target="_blank">
           <TypographyMuted>
             build with{" "}

@@ -48,10 +48,10 @@ export const EditFieldCard = ({ field }: { field: Field }) => {
   }
 
   return (
-    <div className="flex space-4 hover:cursor-pointer">
+    <div className="space-4 flex hover:cursor-pointer">
       <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
         <EditFieldSheet formId={field.formId} field={field}>
-          <Card className="w-full flex justify-between p-4 items-center space-x-2">
+          <Card className="flex w-full items-center justify-between space-x-2 p-4">
             <div className="grow flex-col truncate">
               <TypographySmall>
                 {field.label} {field.required ? "(required)" : ""}

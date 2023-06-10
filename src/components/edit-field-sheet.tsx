@@ -32,7 +32,7 @@ export const EditFieldSheet = ({
   return (
     <Sheet onOpenChange={setOpen} open={open}>
       <SheetTrigger asChild>{children}</SheetTrigger>
-      <SheetContent className="space-y-8 h-full overflow-auto">
+      <SheetContent className="h-full space-y-8 overflow-auto">
         <SheetHeader>
           <SheetTitle>Edit field</SheetTitle>
           <SheetDescription>

@@ -1,4 +1,4 @@
-import "./src/env.mjs";
+import "./src/env.mjs"
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -13,7 +13,7 @@ const nextConfig = {
         permanent: true,
       },
     ]
-  }
+  },
 }
 
 export default nextConfig
