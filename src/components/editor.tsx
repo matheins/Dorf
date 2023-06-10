@@ -40,7 +40,7 @@ const setPublishForm = async ({
   formId,
   publish,
 }: {
-  formId: number
+  formId: string
   publish: boolean
 }) => {
   await setFormPublished({
@@ -53,7 +53,7 @@ const setPublishForm = async ({
   })
 }
 
-const copyLinkToClipboard = async ({ formId }: { formId: number }) => {
+const copyLinkToClipboard = async ({ formId }: { formId: string }) => {
   const url = `${siteConfig.url}/f/${formId}`
   await navigator.clipboard.writeText(url)
   toast({

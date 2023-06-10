@@ -24,7 +24,7 @@ export const EditFieldSheet = ({
   field,
 }: {
   children: React.ReactNode
-  formId: number
+  formId: string
   field?: Field
 }) => {
   const [open, setOpen] = useState(false)
