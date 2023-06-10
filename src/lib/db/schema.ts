@@ -5,17 +5,20 @@ import {
   json,
   mysqlEnum,
   mysqlTable,
-  serial,
+  text,
   timestamp,
   varchar,
 } from "drizzle-orm/mysql-core"
 
 export const forms = mysqlTable("forms", {
-  id: serial("cuid").primaryKey(),
+  id: varchar("id", { length: 12 }).primaryKey().notNull(),
   createdAt: timestamp("created_at").defaultNow(),
   updatedAt: timestamp("updated_at").onUpdateNow(),
-  title: varchar("title", { length: 256 }),
+  title: varchar("title", { length: 256 }).notNull(),
   description: varchar("description", { length: 512 }),
+  submitText: varchar("submit_text", { length: 256 }).notNull(),
+  published: boolean("published").default(false).notNull(),
+  archived: boolean("archived").default(false).notNull(),
 })
 
 export const formsRelations = relations(forms, ({ many }) => ({
@@ -24,7 +27,7 @@ export const formsRelations = relations(forms, ({ many }) => ({
 }))
 
 export const fields = mysqlTable("fields", {
-  id: serial("cuid").primaryKey(),
+  id: varchar("id", { length: 12 }).primaryKey().notNull(),
   createdAt: timestamp("created_at").defaultNow(),
   updatedAt: timestamp("updated_at").onUpdateNow(),
   type: mysqlEnum("type", [
@@ -39,12 +42,14 @@ export const fields = mysqlTable("fields", {
     "date",
     "time",
     "tel",
-  ]),
-  label: varchar("label", { length: 256 }),
+  ]).notNull(),
+  label: varchar("label", { length: 256 }).notNull(),
   placeholder: varchar("placeholder", { length: 256 }),
-  required: boolean("required"),
+  required: boolean("required").default(false).notNull(),
+  description: varchar("description", { length: 512 }),
   order: int("order"),
-  formId: varchar("form_id", { length: 32 }),
+  options: varchar("options", { length: 512 }),
+  formId: text("form_id").notNull(),
 })
 
 export const fieldsRelations = relations(fields, ({ one, many }) => ({
@@ -52,31 +57,13 @@ export const fieldsRelations = relations(fields, ({ one, many }) => ({
     fields: [fields.formId],
     references: [forms.id],
   }),
-  options: many(options),
-}))
-
-export const options = mysqlTable("options", {
-  id: serial("cuid").primaryKey(),
-  createdAt: timestamp("created_at").defaultNow(),
-  updatedAt: timestamp("updated_at").onUpdateNow(),
-  fieldId: varchar("field_id", { length: 32 }),
-  label: varchar("label", { length: 256 }),
-  value: varchar("value", { length: 256 }),
-  order: int("order"),
-})
-
-export const optionsRelations = relations(options, ({ one }) => ({
-  field: one(fields, {
-    fields: [options.fieldId],
-    references: [fields.id],
-  }),
 }))
 
 export const submissions = mysqlTable("submissions", {
-  id: serial("cuid").primaryKey(),
+  id: varchar("id", { length: 12 }).primaryKey().notNull(),
   createdAt: timestamp("created_at").defaultNow(),
   updatedAt: timestamp("updated_at").onUpdateNow(),
-  formId: varchar("form_id", { length: 32 }),
+  formId: text("form_id").notNull(),
   data: json("data"),
 })
 
