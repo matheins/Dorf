@@ -15,6 +15,10 @@ export const env = createEnv({
     // POSTMARK_API_TOKEN: z.string().min(1),
     // POSTMARK_SIGN_IN_TEMPLATE: z.string().min(1),
     // POSTMARK_ACTIVATION_TEMPLATE: z.string().min(1),
+    KV_URL: z.string().min(1),
+    KV_REST_API_URL: z.string().min(1),
+    KV_REST_API_TOKEN: z.string().min(1),
+    KV_REST_API_READ_ONLY_TOKEN: z.string().min(1),
   },
   client: {
     NEXT_PUBLIC_APP_URL: z.string().min(1),
@@ -27,5 +31,9 @@ export const env = createEnv({
     // POSTMARK_SIGN_IN_TEMPLATE: process.env.POSTMARK_SIGN_IN_TEMPLATE,
     // POSTMARK_ACTIVATION_TEMPLATE: process.env.POSTMARK_ACTIVATION_TEMPLATE,
     NEXT_PUBLIC_APP_URL: process.env.NEXT_PUBLIC_APP_URL,
+    KV_URL: process.env.KV_URL,
+    KV_REST_API_URL: process.env.KV_REST_API_URL,
+    KV_REST_API_TOKEN: process.env.KV_REST_API_TOKEN,
+    KV_REST_API_READ_ONLY_TOKEN: process.env.KV_REST_API_READ_ONLY_TOKEN,
   },
 })
