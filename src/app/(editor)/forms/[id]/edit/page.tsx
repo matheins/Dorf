@@ -10,7 +10,9 @@ const getForm = async ({ id }: { id: string }) => {
   const form = await db.query.forms.findFirst({
     where: eq(forms.id, id),
     with: {
-      fields: true,
+      fields: {
+        orderBy: (fields, { asc }) => [asc(fields.createdAt)],
+      },
     },
   })
 

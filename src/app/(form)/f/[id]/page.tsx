@@ -11,13 +11,11 @@ const getForm = async ({ id }: { id: string }) => {
   const form = await db.query.forms.findFirst({
     where: eq(forms.id, id),
     with: {
-      fields: true,
+      fields: {
+        orderBy: (fields, { asc }) => [asc(fields.createdAt)],
+      },
     },
   })
-
-  if (!form) {
-    throw new Error("Form not found")
-  }
 
   return form
 }
@@ -27,7 +25,7 @@ const Form = async ({ params }: { params: { id: string } }) => {
 
   const form = await getForm({ id })
 
-  if (!form.published || form.archived) {
+  if (!form?.published || form.archived) {
     notFound()
   }
 
