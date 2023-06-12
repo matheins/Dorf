@@ -166,7 +166,7 @@ export const EditFieldForm = ({
               <FormLabel>Type</FormLabel>
               <Select onValueChange={field.onChange} defaultValue={field.value}>
                 <FormControl>
-                  <SelectTrigger>
+                  <SelectTrigger required>
                     <SelectValue placeholder="Select the fields type" />
                   </SelectTrigger>
                 </FormControl>

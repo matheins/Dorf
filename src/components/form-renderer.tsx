@@ -398,11 +398,11 @@ export const FormRenderer = ({
                       <FormLabel>{fieldItem.label}</FormLabel>
                       <Select
                         onValueChange={field.onChange}
-                        defaultValue={String(field.value)}
+                        defaultValue={field.value as string}
                       >
                         <FormControl>
-                          <SelectTrigger>
-                            <SelectValue placeholder={"Test"} />
+                          <SelectTrigger required={fieldItem.required}>
+                            <SelectValue placeholder={fieldItem.placeholder} />
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent>
