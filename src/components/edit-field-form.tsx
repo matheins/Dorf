@@ -4,7 +4,19 @@ import { useEffect, useState } from "react"
 import { addField, updateField } from "@/actions/fields"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { InferModel } from "drizzle-orm"
-import { XIcon } from "lucide-react"
+import {
+  AtSignIcon,
+  CalendarIcon,
+  CircleDotIcon,
+  ClockIcon,
+  HashIcon,
+  LinkIcon,
+  PhoneIcon,
+  TextIcon,
+  ToggleLeftIcon,
+  TypeIcon,
+  XIcon,
+} from "lucide-react"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
 
@@ -12,6 +24,7 @@ import { fields } from "@/lib/db/schema"
 
 import { Icons } from "./icons"
 import { Button } from "./ui/button"
+import { DropdownMenuItem } from "./ui/dropdown-menu"
 import {
   Form,
   FormControl,
@@ -34,10 +47,10 @@ import { useToast } from "./ui/use-toast"
 
 const formSchema = z.object({
   id: z.string().optional(),
-  label: z.string().min(2).max(50),
+  label: z.string().min(2).max(256),
   description: z.string().max(512).optional(),
   type: z.enum(fields.type.enumValues),
-  placeholder: z.string().max(50).optional(),
+  placeholder: z.string().max(256).optional(),
   required: z.boolean(),
   formId: z.string(),
   options: z.string().min(1).max(50).array().optional(),
@@ -62,6 +75,7 @@ export const EditFieldForm = ({
     defaultValues: {
       id: fieldData?.id || undefined,
       label: fieldData?.label || "",
+      description: fieldData?.description || "",
       placeholder: fieldData?.placeholder || "",
       required: fieldData?.required || false,
       type: fieldData?.type || undefined,
@@ -157,16 +171,66 @@ export const EditFieldForm = ({
                   </SelectTrigger>
                 </FormControl>
                 <SelectContent>
-                  <SelectItem value="text">Short answer</SelectItem>
-                  <SelectItem value="textarea">Long answer</SelectItem>
-                  <SelectItem value="number">Number</SelectItem>
-                  <SelectItem value="email">Email</SelectItem>
-                  <SelectItem value="tel">Phone</SelectItem>
-                  <SelectItem value="url">URL</SelectItem>
-                  <SelectItem value="date">Date</SelectItem>
-                  <SelectItem value="time">Time</SelectItem>
-                  <SelectItem value="checkbox">Checkboxes</SelectItem>
-                  <SelectItem value="radio">Radio buttons</SelectItem>
+                  <SelectItem value="text">
+                    <div className="flex items-center">
+                      <TypeIcon className="mr-2 w-4 h-4" />
+                      <span>Short answer</span>
+                    </div>
+                  </SelectItem>
+                  <SelectItem value="textarea">
+                    <div className="flex items-center">
+                      <TextIcon className="mr-2 w-4 h-4" />
+                      <span>Long answer</span>
+                    </div>
+                  </SelectItem>
+                  <SelectItem value="number">
+                    <div className="flex items-center">
+                      <HashIcon className="mr-2 w-4 h-4" />
+                      <span>Number</span>
+                    </div>
+                  </SelectItem>
+                  <SelectItem value="email">
+                    <div className="flex items-center">
+                      <AtSignIcon className="mr-2 w-4 h-4" />
+                      <span>Email</span>
+                    </div>
+                  </SelectItem>
+                  <SelectItem value="tel">
+                    <div className="flex items-center">
+                      <PhoneIcon className="mr-2 w-4 h-4" />
+                      <span>Phone</span>
+                    </div>
+                  </SelectItem>
+                  <SelectItem value="url">
+                    <div className="flex items-center">
+                      <LinkIcon className="mr-2 w-4 h-4" />
+                      <span>URL</span>
+                    </div>
+                  </SelectItem>
+                  <SelectItem value="date">
+                    <div className="flex items-center">
+                      <CalendarIcon className="mr-2 w-4 h-4" />
+                      <span>Date</span>
+                    </div>
+                  </SelectItem>
+                  <SelectItem value="time">
+                    <div className="flex items-center">
+                      <ClockIcon className="mr-2 w-4 h-4" />
+                      <span>Time</span>
+                    </div>
+                  </SelectItem>
+                  <SelectItem value="checkbox">
+                    <div className="flex items-center">
+                      <ToggleLeftIcon className="mr-2 w-4 h-4" />
+                      <span>Checkbox</span>
+                    </div>
+                  </SelectItem>
+                  <SelectItem value="radio">
+                    <div className="flex items-center">
+                      <CircleDotIcon className="mr-2 w-4 h-4" />
+                      <span>Single Choice</span>
+                    </div>
+                  </SelectItem>
                 </SelectContent>
               </Select>
               <FormDescription>

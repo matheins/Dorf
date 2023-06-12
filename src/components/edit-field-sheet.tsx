@@ -14,7 +14,6 @@ import {
 } from "@/components/ui/sheet"
 
 import { EditFieldForm } from "./edit-field-form"
-import { ScrollArea } from "./ui/scroll-area"
 
 type Field = InferModel<typeof fields, "select">
 
