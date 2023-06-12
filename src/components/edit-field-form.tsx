@@ -173,61 +173,61 @@ export const EditFieldForm = ({
                 <SelectContent>
                   <SelectItem value="text">
                     <div className="flex items-center">
-                      <TypeIcon className="mr-2 w-4 h-4" />
+                      <TypeIcon className="mr-2 h-4 w-4" />
                       <span>Short answer</span>
                     </div>
                   </SelectItem>
                   <SelectItem value="textarea">
                     <div className="flex items-center">
-                      <TextIcon className="mr-2 w-4 h-4" />
+                      <TextIcon className="mr-2 h-4 w-4" />
                       <span>Long answer</span>
                     </div>
                   </SelectItem>
                   <SelectItem value="number">
                     <div className="flex items-center">
-                      <HashIcon className="mr-2 w-4 h-4" />
+                      <HashIcon className="mr-2 h-4 w-4" />
                       <span>Number</span>
                     </div>
                   </SelectItem>
                   <SelectItem value="email">
                     <div className="flex items-center">
-                      <AtSignIcon className="mr-2 w-4 h-4" />
+                      <AtSignIcon className="mr-2 h-4 w-4" />
                       <span>Email</span>
                     </div>
                   </SelectItem>
                   <SelectItem value="tel">
                     <div className="flex items-center">
-                      <PhoneIcon className="mr-2 w-4 h-4" />
+                      <PhoneIcon className="mr-2 h-4 w-4" />
                       <span>Phone</span>
                     </div>
                   </SelectItem>
                   <SelectItem value="url">
                     <div className="flex items-center">
-                      <LinkIcon className="mr-2 w-4 h-4" />
+                      <LinkIcon className="mr-2 h-4 w-4" />
                       <span>URL</span>
                     </div>
                   </SelectItem>
                   <SelectItem value="date">
                     <div className="flex items-center">
-                      <CalendarIcon className="mr-2 w-4 h-4" />
+                      <CalendarIcon className="mr-2 h-4 w-4" />
                       <span>Date</span>
                     </div>
                   </SelectItem>
                   <SelectItem value="time">
                     <div className="flex items-center">
-                      <ClockIcon className="mr-2 w-4 h-4" />
+                      <ClockIcon className="mr-2 h-4 w-4" />
                       <span>Time</span>
                     </div>
                   </SelectItem>
                   <SelectItem value="checkbox">
                     <div className="flex items-center">
-                      <ToggleLeftIcon className="mr-2 w-4 h-4" />
+                      <ToggleLeftIcon className="mr-2 h-4 w-4" />
                       <span>Checkbox</span>
                     </div>
                   </SelectItem>
                   <SelectItem value="radio">
                     <div className="flex items-center">
-                      <CircleDotIcon className="mr-2 w-4 h-4" />
+                      <CircleDotIcon className="mr-2 h-4 w-4" />
                       <span>Single Choice</span>
                     </div>
                   </SelectItem>
