@@ -1,8 +1,9 @@
 import Link from "next/link"
-import { eq } from "drizzle-orm"
+import { and, eq } from "drizzle-orm"
 
 import { db } from "@/lib/db"
 import { forms } from "@/lib/db/schema"
+import { getCurrentUser } from "@/lib/session"
 import { buttonVariants } from "@/components/ui/button"
 import { DataTable } from "@/components/ui/data-table"
 import { EmptyPlaceholder } from "@/components/empty-placeholder"
@@ -11,22 +12,24 @@ import { DashboardShell } from "@/components/shell"
 
 import { columns } from "./columns"
 
-export const runtime = "edge"
-
-const getForms = async () => {
+const getForms = async ({ userId }: { userId: string }) => {
   const data = await db.query.forms.findMany({
     with: {
       fields: true,
       submissions: true,
     },
-    where: eq(forms.archived, false),
+    where: and(eq(forms.archived, false), eq(forms.userId, userId)),
   })
 
   return data
 }
 
 const Forms = async () => {
-  const forms = await getForms()
+  const user = await getCurrentUser()
+  if (!user) {
+    return null
+  }
+  const forms = await getForms({ userId: user.id })
   return (
     <DashboardShell>
       <DashboardHeader

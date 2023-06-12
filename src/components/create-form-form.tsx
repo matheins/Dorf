@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation"
 import { createForm } from "@/actions/forms"
 import { zodResolver } from "@hookform/resolvers/zod"
+import { User } from "next-auth/core/types"
 import { useForm } from "react-hook-form"
 import * as z from "zod"
 
@@ -33,7 +34,13 @@ const formSchema = z.object({
   submitText: z.string().min(2).max(50),
 })
 
-export const CreateFormForm = () => {
+export const CreateFormForm = ({
+  user,
+}: {
+  user: User & {
+    id: string
+  }
+}) => {
   const router = useRouter()
   const { toast } = useToast()
   const form = useForm<z.infer<typeof formSchema>>({
@@ -46,7 +53,7 @@ export const CreateFormForm = () => {
   })
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    const newForm = await createForm(values)
+    const newForm = await createForm({ ...values, userId: user.id })
     toast({
       title: "Form created",
       description: "Your form has been created.",

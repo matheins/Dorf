@@ -10,8 +10,6 @@ import { DashboardShell } from "@/components/shell"
 import { SubmissionsTable } from "@/components/submissions-table"
 import { TypographyH2 } from "@/components/typography"
 
-export const runtime = "edge"
-
 const getForm = async ({ id }: { id: string }) => {
   const form = await db.query.forms.findFirst({
     where: eq(forms.id, id),

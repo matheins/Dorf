@@ -32,7 +32,7 @@ export function MainNav({ items, children }: MainNavProps) {
           {items?.map((item, index) => (
             <Link
               key={index}
-              href={item.disabled ? "#" : item.href}
+              href={{ pathname: item.href }}
               className={cn(
                 "hover:text-foreground/80 flex items-center text-lg font-medium transition-colors sm:text-sm",
                 item.href.startsWith(`/${segment}`)

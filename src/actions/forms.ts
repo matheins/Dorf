@@ -13,6 +13,7 @@ const insertFormSchema = createInsertSchema(forms).pick({
   title: true,
   description: true,
   submitText: true,
+  userId: true,
 })
 type InsertForm = z.infer<typeof insertFormSchema>
 
