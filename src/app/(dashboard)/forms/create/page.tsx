@@ -1,15 +1,17 @@
+import { getCurrentUser } from "@/lib/session"
 import { CreateFormForm } from "@/components/create-form-form"
 import { DashboardHeader } from "@/components/header"
 import { DashboardShell } from "@/components/shell"
 
-export const runtime = "edge"
-
 const CreateForm = async () => {
+  const user = await getCurrentUser()
+
   return (
     <DashboardShell>
       <DashboardHeader heading="Create new form" />
       <div className="grid gap-10">
-        <CreateFormForm />
+        {/* @ts-expect-error Async Server Component */}
+        <CreateFormForm user={user} />
       </div>
     </DashboardShell>
   )
