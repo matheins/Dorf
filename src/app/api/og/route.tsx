@@ -16,7 +16,7 @@ const logo = fetch(
 export async function GET(req: Request) {
   try {
     const font = await calSans
-    const logoData = await logo
+    const logoData = (await logo) as unknown as string
 
     const url = new URL(req.url)
     const values = ogImageSchema.parse(Object.fromEntries(url.searchParams))
