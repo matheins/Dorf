@@ -1,34 +1,53 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<a href="https://dorf.vercel.app">
+  <h1 align="center">Dorf</h1>
+</a>
 
-## Getting Started
+<p align="center">
+  An open source visual form builder for everyone who wants to gather feedback, leads and opinions.
+</p>
+<p align="center">
+  <a href="https://twitter.com/matheins">
+    <img src="https://img.shields.io/twitter/follow/matheins?style=for-the-badge&label=%40matheins&logo=twitter&color=0bf&logoColor=fff" alt="Twitter" />
+  </a>
+  <a href="https://github.com/matheins/dorf/blob/main/LICENSE">
+    <img src="https://img.shields.io/github/license/matheins/dorf?style=for-the-badge&label=license&logo=github&color=f80&logoColor=fff" alt="License" />
+  </a>
+</p>
 
-First, run the development server:
+<p align="center">
+  <a href="#introduction"><strong>Introduction</strong></a> ·
+  <a href="#tech-stack"><strong>Tech Stack</strong></a> ·
+  <a href="#contributing"><strong>Contributing</strong></a>
+</p>
+<br/>
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+## Introduction
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Dorf is an open-source visual form builder to easily gather feedback, leads and opinions. Built with [Vercel KV](https://vercel.com/storage/kv), and [PlanetScale MySQL](https://planetscale.com/).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Tech Stack
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- [Next.js](https://nextjs.org/) – framework
+- [Typescript](https://www.typescriptlang.org/) – language
+- [Tailwind](https://tailwindcss.com/) – CSS
+- [Vercel KV](https://vercel.com/storage/kv) – redis
+- [PlanetScale](https://planetscale.com/) – database
+- [Drizzle](https://orm.drizzle.team/) - ORM
+- [NextAuth.js](https://next-auth.js.org/) – auth
+- [Vercel](https://vercel.com/) – hosting
+- [Postmark](https://postmarkapp.com/) - emails
 
-## Learn More
+## Contributing
 
-To learn more about Next.js, take a look at the following resources:
+We love our contributors! Here's how you can contribute:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- [Open an issue](https://github.com/matheins/dorf/issues) if you believe you've encountered a bug.
+- Make a [pull request](https://github.com/matheins/dorf/pull) to add new features/make quality-of-life improvements/fix bugs.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Author
 
-## Deploy on Vercel
+- Matyas Heins ([@matheins](https://twitter.com/matheins))
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## License
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Inspired by [Plausible](https://plausible.io/) and [Dub](https://dub.sh), Dorf is open-source under the GNU Affero General Public License Version 3 (AGPLv3) or any later version. You can [find it here](https://github.com/matheins/dorf/blob/main/LICENSE.md).
