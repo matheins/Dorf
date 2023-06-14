@@ -1,4 +1,5 @@
 <a href="https://dorf.vercel.app">
+  <img alt="Dorf - An open source visual form builder for everyone who wants to gather feedback, leads and opinions" src="https://user-images.githubusercontent.com/32817933/245763111-ed574686-f2a7-4857-9aa9-22d918220d24.png"/> 
   <h1 align="center">Dorf</h1>
 </a>
 
