@@ -1,8 +1,9 @@
 import { SiteConfig } from "@/types"
 
 export const siteConfig: SiteConfig = {
-  name: "Dorf forms",
-  description: "A free and open source form builder.",
+  name: "Dorf",
+  description:
+    "Dorf is a free, open source visual form builder for capturing feedback, leads, and opinions.",
   url: "https://dorf.vercel.app",
   ogImage: "https://dorf.vercel.app/og.jpg",
   links: {
