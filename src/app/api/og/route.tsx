@@ -21,11 +21,11 @@ export async function GET(req: Request) {
     const url = new URL(req.url)
     const values = ogImageSchema.parse(Object.fromEntries(url.searchParams))
     const heading =
-      values.heading.length > 140
-        ? `${values.heading.substring(0, 140)}...`
+      values.heading.length > 80
+        ? `${values.heading.substring(0, 80)}...`
         : values.heading
 
-    const fontSize = heading.length > 100 ? "70px" : "100px"
+    const fontSize = heading.length > 36 ? "70px" : "100px"
 
     return new ImageResponse(
       (
@@ -36,17 +36,17 @@ export async function GET(req: Request) {
             fontFamily: "Cal Sans",
           }}
         >
-          <div tw="flex flex-col flex-1 items-center">
+          <div tw="flex flex-col flex-1 items-center w-full">
             <img
               alt={`${heading} | Dorf forms`}
               src={logoData}
-              tw="h-12 mb-24"
+              tw="h-12 mb-16"
             />
-            <div tw="text-md uppercase font-bold tracking-tight bg-black text-white px-4 py-2 rounded-full mb-4 relative justify-center">
+            <span tw="inline-flex text-md uppercase font-bold tracking-tight bg-black text-white px-4 py-2 rounded-full mb-4 items-center">
               {values.type}
-            </div>
+            </span>
             <div
-              tw="flex leading-[1.1] text-[80px] text-center"
+              tw="flex leading-[1.3] text-[80px] text-center"
               style={{
                 fontSize: fontSize,
                 color: "transparent",
