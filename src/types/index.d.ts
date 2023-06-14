@@ -42,4 +42,5 @@ export type DashboardConfig = {
 
 export type MarketingConfig = {
   mainNav: MainNavItem[]
+  demoLink: string
 }
