@@ -10,7 +10,7 @@ const calSans = fetch(
 ).then((res) => res.arrayBuffer())
 
 const logo = fetch(
-  new URL("../../../../apple-touch-icon.png", import.meta.url)
+  new URL("../../../../public/apple-touch-icon.png", import.meta.url)
 ).then((res) => res.arrayBuffer())
 
 export async function GET(req: Request) {
