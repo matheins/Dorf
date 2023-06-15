@@ -22,7 +22,7 @@ export default async function IndexPage() {
           >
             Follow along on Twitter
           </Link>
-          <h1 className="font-heading bg-gradient-to-br from-foreground from-30% to-foreground/40 bg-clip-text text-center text-3xl text-transparent sm:text-5xl md:text-6xl lg:text-7xl">
+          <h1 className="font-heading from-foreground to-foreground/40 bg-gradient-to-br from-30% bg-clip-text text-center text-3xl text-transparent sm:text-5xl md:text-6xl lg:text-7xl">
             <span>Form Building</span>
             <br />
             <span>Made Simple</span>
