@@ -13,7 +13,7 @@ export default function FormLayout({
       <div className="mt-8 flex justify-center text-center">
         <Link href="/" target="_blank">
           <TypographyMuted>
-            build with{" "}
+            built with{" "}
             <span className="heading font-heading text-foreground">
               Dorf.build
             </span>
