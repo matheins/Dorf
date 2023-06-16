@@ -40,7 +40,7 @@ const Forms = async () => {
           Create form
         </Link>
       </DashboardHeader>
-      <div className="px-2">
+      <div className="overflow-hidden px-2">
         {forms?.length ? (
           <DataTable columns={columns} data={forms} searchColumn="title" />
         ) : (

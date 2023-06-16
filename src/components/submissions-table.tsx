@@ -51,5 +51,9 @@ export const SubmissionsTable = async ({ formId }: { formId: string }) => {
     return staticColumns.concat(dynamicColumns)
   }
 
-  return <DataTable columns={columns()} data={submissions} />
+  return (
+    <div className="overflow-hidden">
+      <DataTable columns={columns()} data={submissions} />
+    </div>
+  )
 }
