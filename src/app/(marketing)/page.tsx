@@ -52,7 +52,7 @@ export default async function IndexPage() {
             Proudly Open Source
           </h2>
           <p className="text-muted-foreground max-w-[85%] leading-normal sm:text-lg sm:leading-7">
-            Taxonomy is open source and powered by open source software. <br />{" "}
+            Dorf is open source and powered by open source software. <br />{" "}
             The code is available on{" "}
             <Link
               href={siteConfig.links.github}
