@@ -7,7 +7,7 @@ export const siteConfig: SiteConfig = {
   url: "https://dorf.vercel.app",
   ogImage: "https://dorf.vercel.app/og.jpg",
   links: {
-    twitter: "https://twitter.com/matheins",
+    twitter: "https://twitter.com/mat_heins",
     github: "https://github.com/matheins/dorf",
   },
 }
