@@ -54,44 +54,50 @@ const fieldTypeSchema = z.enum(fields.type.enumValues)
 type FieldType = z.infer<typeof fieldTypeSchema>
 
 // build validtion schema from form fields using zod. i.e. if field.type === "email" then add z.string().email() to schema. If its required then add .required()
-const generateZodSchema = (fieldType: FieldType) => {
+const generateZodSchema = (fieldType: FieldType, required: boolean) => {
+  let type
   switch (fieldType) {
     case "text":
-      return z.string()
+      type = z.string()
+      break
     case "number":
-      return z.number()
+      type = z.number()
+      break
     case "email":
-      return z.string().email()
+      type = z.string().email()
+      break
     case "textarea":
-      return z.string().max(512)
+      type = z.string().max(512)
+      break
     case "checkbox":
-      return z.boolean()
+      type = z.boolean()
+      break
     case "url":
-      return z.string().url()
+      type = z.string().url()
+      break
     case "tel":
-      return z.string().refine(validator.isMobilePhone)
+      type = z.string().refine(validator.isMobilePhone)
+      break
     case "date":
-      return z.date()
+      type = z.date()
+      break
 
     // Add more field types and their corresponding schema definitions here
     default:
       // Default to treating unknown field types as strings
-      return z.string()
+      type = z.string()
   }
+
+  if (!required) {
+    type = type.optional()
+  }
+
+  return type
 }
 
 const generateFormSchema = (formData: FormWithFields) => {
   const fieldSchemas = formData.fields.map((field) => {
-    const fieldSchema = generateZodSchema(field.type)
-
-    // Apply additional validations based on field configuration if needed
-    console.log("required", field.required)
-
-    if (!field.required) {
-      fieldSchema.and(z.string().optional())
-    }
-
-    console.log("fieldSchema", fieldSchema._def)
+    let fieldSchema = generateZodSchema(field.type, field.required)
 
     return {
       [field.label]: fieldSchema,
@@ -120,11 +126,7 @@ export const FormRenderer = ({
   const router = useRouter()
   const [isSubmitting, setIsSubmitting] = useState(false)
 
-  console.log("schema", formSchema.shape)
-
   async function onSubmit(values: unknown) {
-    console.log("values", values)
-
     setIsSubmitting(true)
     if (!preview) {
       await createSubmission({
