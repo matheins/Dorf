@@ -110,9 +110,6 @@ dependencies:
   clsx:
     specifier: ^1.2.1
     version: 1.2.1
-  csv-stringify:
-    specifier: ^6.4.0
-    version: 6.4.0
   date-fns:
     specifier: ^2.30.0
     version: 2.30.0
@@ -2715,10 +2712,6 @@ packages:
 
   /csstype@3.1.2:
     resolution: {integrity: sha512-I7K1Uu0MBPzaFKg4nI5Q7Vs2t+3gWWW648spaF+Rg7pI9ds18Ugn+lvg4SHczUdKlHI5LWBXyqfS8+DufyBsgQ==}
-    dev: false
-
-  /csv-stringify@6.4.0:
-    resolution: {integrity: sha512-HQsw0QXiN5fdlO+R8/JzCZnR3Fqp8E87YVnhHlaPtNGJjt6ffbV0LpOkieIb1x6V1+xt878IYq77SpXHWAqKkA==}
     dev: false
 
   /d@1.0.1:
