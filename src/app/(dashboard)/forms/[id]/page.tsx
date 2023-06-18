@@ -7,8 +7,9 @@ import { forms } from "@/lib/db/schema"
 import { buttonVariants } from "@/components/ui/button"
 import { DashboardHeader } from "@/components/header"
 import { DashboardShell } from "@/components/shell"
-import { SubmissionsTable } from "@/components/submissions-table"
 import { TypographyH2 } from "@/components/typography"
+
+import { SubmissionsTable } from "./_components/submissions-table"
 
 const getForm = async ({ id }: { id: string }) => {
   const form = await db.query.forms.findFirst({
