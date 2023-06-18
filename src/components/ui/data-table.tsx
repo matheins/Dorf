@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import React, { useState } from "react"
 import {
   ColumnDef,
   ColumnFiltersState,
@@ -33,7 +33,11 @@ export function DataTable<TData, TValue>({
   columns,
   data,
   searchColumn,
-}: DataTableProps<TData, TValue> & { searchColumn?: string }) {
+  actions,
+}: DataTableProps<TData, TValue> & {
+  searchColumn?: string
+  actions?: React.ReactNode
+}) {
   const [sorting, setSorting] = useState<SortingState>([])
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([])
 
@@ -54,20 +58,29 @@ export function DataTable<TData, TValue>({
 
   return (
     <div>
-      {searchColumn && (
-        <div className="flex items-center py-4">
-          <Input
-            placeholder="Filter forms..."
-            value={
-              (table.getColumn(searchColumn)?.getFilterValue() as string) ?? ""
-            }
-            onChange={(event) =>
-              table.getColumn(searchColumn)?.setFilterValue(event.target.value)
-            }
-            className="max-w-sm"
-          />
+      <div className="flex">
+        <div className="flex flex-1 items-center py-4">
+          {searchColumn && (
+            <Input
+              placeholder="Filter forms..."
+              value={
+                (table.getColumn(searchColumn)?.getFilterValue() as string) ??
+                ""
+              }
+              onChange={(event) =>
+                table
+                  .getColumn(searchColumn)
+                  ?.setFilterValue(event.target.value)
+              }
+              className="max-w-sm"
+            />
+          )}
         </div>
-      )}
+
+        {actions && (
+          <div className="flex items-center justify-end py-4">{actions}</div>
+        )}
+      </div>
       <div className="rounded-md border">
         <Table>
           <TableHeader>
