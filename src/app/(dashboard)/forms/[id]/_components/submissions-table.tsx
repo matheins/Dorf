@@ -4,8 +4,9 @@ import { desc, eq, InferModel } from "drizzle-orm"
 
 import { db } from "@/lib/db"
 import { submissions } from "@/lib/db/schema"
+import { DataTable } from "@/components/ui/data-table"
 
-import { DataTable } from "./ui/data-table"
+import ExportButton from "./export-button"
 
 const getSubmissions = async (formId: string) => {
   const data = await db.query.submissions.findMany({
@@ -53,7 +54,11 @@ export const SubmissionsTable = async ({ formId }: { formId: string }) => {
 
   return (
     <div className="overflow-hidden">
-      <DataTable columns={columns()} data={submissions} />
+      <DataTable
+        columns={columns()}
+        data={submissions}
+        actions={<ExportButton formId={formId} />}
+      />
     </div>
   )
 }
