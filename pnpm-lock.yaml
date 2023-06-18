@@ -110,6 +110,9 @@ dependencies:
   clsx:
     specifier: ^1.2.1
     version: 1.2.1
+  csv-stringify:
+    specifier: ^6.4.0
+    version: 6.4.0
   date-fns:
     specifier: ^2.30.0
     version: 2.30.0
@@ -122,6 +125,12 @@ dependencies:
   drizzle-zod:
     specifier: ^0.4.2
     version: 0.4.2(drizzle-orm@0.26.1)(zod@3.21.4)
+  file-saver:
+    specifier: ^2.0.5
+    version: 2.0.5
+  json2csv:
+    specifier: 6.0.0-alpha.2
+    version: 6.0.0-alpha.2
   lucide-react:
     specifier: ^0.224.0
     version: 0.224.0(react@18.2.0)
@@ -190,6 +199,12 @@ devDependencies:
   '@ianvs/prettier-plugin-sort-imports':
     specifier: ^4.0.0
     version: 4.0.0(prettier@2.8.8)
+  '@types/file-saver':
+    specifier: ^2.0.5
+    version: 2.0.5
+  '@types/json2csv':
+    specifier: ^5.0.3
+    version: 5.0.3
   '@types/validator':
     specifier: ^13.7.17
     version: 13.7.17
@@ -1925,6 +1940,10 @@ packages:
       string.prototype.codepointat: 0.2.1
     dev: false
 
+  /@streamparser/json@0.0.6:
+    resolution: {integrity: sha512-vL9EVn/v+OhZ+Wcs6O4iKE9EUpwHUqHmCtNUMWjqp+6dr85+XPOSGTEsqYNq1Vn04uk9SWlOVmx9J48ggJVT2Q==}
+    dev: false
+
   /@swc/helpers@0.5.1:
     resolution: {integrity: sha512-sJ902EfIzn1Fa+qYmjdQqh8tPsoxyBz+8yBKC2HKUxyezKJFwPGOn7pv4WY6QuQW//ySQi5lJjA/ZT9sNWWNTg==}
     dependencies:
@@ -1980,6 +1999,16 @@ packages:
 
   /@tsconfig/node16@1.0.4:
     resolution: {integrity: sha512-vxhUy4J8lyeyinH7Azl1pdd43GJhZH/tP2weN8TntQblOY+A0XbT8DJk1/oCPuOOyg/Ja757rG0CgHcWC8OfMA==}
+
+  /@types/file-saver@2.0.5:
+    resolution: {integrity: sha512-zv9kNf3keYegP5oThGLaPk8E081DFDuwfqjtiTzm6PoxChdJ1raSuADf2YGCVIyrSynLrgc8JWv296s7Q7pQSQ==}
+    dev: true
+
+  /@types/json2csv@5.0.3:
+    resolution: {integrity: sha512-ZJEv6SzhPhgpBpxZU4n/TZekbZqI4EcyXXRwms1lAITG2kIAtj85PfNYafUOY1zy8bWs5ujaub0GU4copaA0sw==}
+    dependencies:
+      '@types/node': 20.2.5
+    dev: true
 
   /@types/json5@0.0.29:
     resolution: {integrity: sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==}
@@ -2563,6 +2592,11 @@ packages:
     resolution: {integrity: sha512-NOKm8xhkzAjzFx8B2v5OAHT+u5pRQc2UCa2Vq9jYL/31o2wi9mxBA7LIFs3sV5VSC49z6pEhfbMULvShKj26WA==}
     engines: {node: '>= 6'}
 
+  /commander@6.2.1:
+    resolution: {integrity: sha512-U7VdrJFnJgo4xjrHpTzu0yrHPGImdsmD95ZlgYSEajAn2JKzDhDTPG9kBTefmObL2w/ngeZnilk+OV9CG3d7UA==}
+    engines: {node: '>= 6'}
+    dev: false
+
   /commander@9.5.0:
     resolution: {integrity: sha512-KRs7WVDKg86PWiuAqhDrAQnTXZKraVcCc6vFdL14qrZ/DcWwuRo7VoiYXalXO7S5GKpqYiVEwCbgFDfxNHKJBQ==}
     engines: {node: ^12.20.0 || >=14}
@@ -2681,6 +2715,10 @@ packages:
 
   /csstype@3.1.2:
     resolution: {integrity: sha512-I7K1Uu0MBPzaFKg4nI5Q7Vs2t+3gWWW648spaF+Rg7pI9ds18Ugn+lvg4SHczUdKlHI5LWBXyqfS8+DufyBsgQ==}
+    dev: false
+
+  /csv-stringify@6.4.0:
+    resolution: {integrity: sha512-HQsw0QXiN5fdlO+R8/JzCZnR3Fqp8E87YVnhHlaPtNGJjt6ffbV0LpOkieIb1x6V1+xt878IYq77SpXHWAqKkA==}
     dev: false
 
   /d@1.0.1:
@@ -3743,6 +3781,10 @@ packages:
       flat-cache: 3.0.4
     dev: true
 
+  /file-saver@2.0.5:
+    resolution: {integrity: sha512-P9bmyZ3h/PRG+Nzga+rbdI4OEpNDzAVyy74uVO9ATgzLK6VtAsYybF/+TOCvrc0MO793d6+42lLyZTw7/ArVzA==}
+    dev: false
+
   /fill-range@7.0.1:
     resolution: {integrity: sha512-qOo9F+dMUmC2Lcb4BbVvnKJxTPjCm+RRpe4gDuGrzkL7mEVl/djYSu2OdQ2Pa302N4oqkSg9ir6jaLWJ2USVpQ==}
     engines: {node: '>=8'}
@@ -4440,6 +4482,16 @@ packages:
     resolution: {integrity: sha512-Bdboy+l7tA3OGW6FjyFHWkP5LuByj1Tk33Ljyq0axyzdk9//JSi2u3fP1QSmd1KNwq6VOKYGlAu87CisVir6Pw==}
     dev: true
 
+  /json2csv@6.0.0-alpha.2:
+    resolution: {integrity: sha512-nJ3oP6QxN8z69IT1HmrJdfVxhU1kLTBVgMfRnNZc37YEY+jZ4nU27rBGxT4vaqM/KUCavLRhntmTuBFqZLBUcA==}
+    engines: {node: '>= 12', npm: '>= 6.13.0'}
+    hasBin: true
+    dependencies:
+      '@streamparser/json': 0.0.6
+      commander: 6.2.1
+      lodash.get: 4.4.2
+    dev: false
+
   /json5@1.0.2:
     resolution: {integrity: sha512-g1MWMLBiz8FKi1e4w0UyVL3w+iJceWAFBAaBnnGKOpNa5f8TLktkbre1+s6oICydWAm+HRUGTmI+//xv2hvXYA==}
     hasBin: true
@@ -4527,6 +4579,10 @@ packages:
   /lodash.camelcase@4.3.0:
     resolution: {integrity: sha512-TwuEnCnxbc3rAvhf/LbG7tJUDzhqXyFnv3dtzLOPgCG/hODL7WFnsbwktkD7yUV0RrreP/l1PALq/YSg6VvjlA==}
     dev: true
+
+  /lodash.get@4.4.2:
+    resolution: {integrity: sha512-z+Uw/vLuy6gQe8cfaFWD7p0wVv8fJl3mbzXh33RS+0oW2wvUqiRXiQ69gLWSLpgB5/6sU+r6BlQR0MBILadqTQ==}
+    dev: false
 
   /lodash.isfunction@3.0.9:
     resolution: {integrity: sha512-AirXNj15uRIMMPihnkInB4i3NHeb4iBtNg9WRWuK2o31S+ePwwNmDPaTL3o7dTJ+VXNZim7rFs4rxN4YU1oUJw==}
