@@ -38,6 +38,33 @@ Dorf is an open-source visual form builder to easily gather feedback, leads and 
 - [Vercel](https://vercel.com/) – hosting
 - [Postmark](https://postmarkapp.com/) - emails
 
+## Development
+
+1. Clone this repo
+2. cp .env.local .env.local
+3. Set NEXTAUTH_SECRET in `.env.local` with value returned when running `openssl rand -base64 32` in your terminal
+4. Configure Github auth provider by following [this guide](https://authjs.dev/getting-started/oauth-tutorial#2-configuring-oauth-provider)
+5. Set DATABASE_URL in `.env.local` to the connection string of your mysql database (either locally running or a [Planetscale](https://planetscale.com/) development branch). Format should be mysql://USER:PASSWORD@HOST/DATABASE?ssl={"rejectUnauthorized":true}
+6. Set these .env vars to `.optional()` in `src/env.mjs` if you dont want to use Email authentication:
+   ```
+   SMTP_FROM: z.string().min(1).optional(),
+   POSTMARK_API_TOKEN: z.string().min(1).optional(),
+   POSTMARK_SIGN_IN_TEMPLATE: z.string().min(1).optional(),
+   POSTMARK_ACTIVATION_TEMPLATE: z.string().min(1).optional()
+   ```
+7. Create Vercel KV Database in [your dashboard](https://vercel.com/dashboard/stores) and connect it to a (new) project.
+8. Set the provided secrets in `.env.local` for following values:
+
+```
+KV_URL=
+KV_REST_API_URL=
+KV_REST_API_TOKEN=
+KV_REST_API_READ_ONLY_TOKEN=
+```
+
+9. Run `pnpm dev` (if you haven't installed pnpm yet follow [this guide](https://pnpm.io/installation))
+10. Happy coding 🎉
+
 ## Contributing
 
 We love our contributors! Here's how you can contribute:
