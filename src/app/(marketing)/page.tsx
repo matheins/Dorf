@@ -31,7 +31,7 @@ export default async function IndexPage() {
             Dorf is a free, open source visual form builder for capturing
             feedback, leads, and opinions.
           </p>
-          <div className="flex flex-col md:flex-row gap-2">
+          <div className="flex flex-col gap-2 md:flex-row">
             <Link href="/login" className={cn(buttonVariants({ size: "lg" }))}>
               Start building
             </Link>
@@ -52,8 +52,8 @@ export default async function IndexPage() {
             Proudly Open Source
           </h2>
           <p className="text-muted-foreground max-w-[85%] leading-normal sm:text-lg sm:leading-7">
-            Dorf is open source and powered by open source software. <br />{" "}
-            The code is available on{" "}
+            Dorf is open source and powered by open source software. <br /> The
+            code is available on{" "}
             <Link
               href={siteConfig.links.github}
               target="_blank"
