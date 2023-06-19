@@ -39,4 +39,5 @@ export const env = createEnv({
     KV_REST_API_TOKEN: process.env.KV_REST_API_TOKEN,
     KV_REST_API_READ_ONLY_TOKEN: process.env.KV_REST_API_READ_ONLY_TOKEN,
   },
+  skipValidation: process.env.SKIP_ENV_VALIDATION
 })
