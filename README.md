@@ -44,7 +44,7 @@ Dorf is an open-source visual form builder to easily gather feedback, leads and 
 2. cp .env.local .env.local
 3. Set NEXTAUTH_SECRET in `.env.local` with value returned when running `openssl rand -base64 32` in your terminal
 4. Configure Github auth provider by following [this guide](https://authjs.dev/getting-started/oauth-tutorial#2-configuring-oauth-provider)
-5. Set DATABASE_URL in `.env.local` to the connection string of your mysql database (either locally running or a [Planetscale](https://planetscale.com/) development branch). Format should be mysql://USER:PASSWORD@HOST/DATABASE?ssl={"rejectUnauthorized":true}
+5. Set DATABASE_URL in `.env.local` to the connection string of your mysql database (either locally running or a [Planetscale](https://planetscale.com/) development branch). Format should be `mysql://USER:PASSWORD@HOST/DATABASE?ssl={"rejectUnauthorized":true}`
 6. Set these .env vars to `.optional()` in `src/env.mjs` if you dont want to use Email authentication:
    ```
    SMTP_FROM: z.string().min(1).optional(),
@@ -78,4 +78,4 @@ We love our contributors! Here's how you can contribute:
 
 ## License
 
-Inspired by [Plausible](https://plausible.io/) and [Dub](https://dub.sh), Dorf is open-source under the GNU Affero General Public License Version 3 (AGPLv3) or any later version. You can [find it here](https://github.com/matheins/dorf/blob/main/LICENSE.md).
+Inspired by [Plausible](https://plausible.io/) and [Dub](https://dub.sh), Dorf is open-source under the GNU Affero General Public License Version 3 (AGPLv3) or any later version. You can [find it here](https://github.com/matheins/dorf/blob/main/LICENSE).
