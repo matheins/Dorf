@@ -4,9 +4,7 @@ import Link from "next/link"
 import { User } from "next-auth"
 import { signOut } from "next-auth/react"
 
-// import { User } from "next-auth"
-// import { signOut } from "next-auth/react"
-
+import { dashboardConfig } from "@/config/dashboard"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -41,16 +39,16 @@ export function UserAccountNav({ user }: UserAccountNavProps) {
           </div>
         </div>
         <DropdownMenuSeparator />
-        <DropdownMenuItem asChild>
-          <Link href="/dashboard">Dashboard</Link>
-        </DropdownMenuItem>
-        {/* <DropdownMenuItem asChild>
-          <Link href="/dashboard/billing">Billing</Link>
-        </DropdownMenuItem> */}
-        <DropdownMenuItem asChild>
-          <Link href="/dashboard/settings">Settings</Link>
-        </DropdownMenuItem>
-        <DropdownMenuSeparator />
+        {dashboardConfig.userNav.length > 0 && (
+          <>
+            {dashboardConfig.userNav.map((navItem) => (
+              <DropdownMenuItem asChild disabled={navItem.disabled}>
+                <Link href={navItem.href}>{navItem.title}</Link>
+              </DropdownMenuItem>
+            ))}
+            <DropdownMenuSeparator />
+          </>
+        )}
         <DropdownMenuItem
           className="cursor-pointer"
           onSelect={(event) => {

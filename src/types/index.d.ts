@@ -7,6 +7,7 @@ export type NavItem = {
 }
 
 export type MainNavItem = NavItem
+export type UserNavItem = NavItem
 
 export type SidebarNavItem = {
   title: string
@@ -38,6 +39,7 @@ export type SiteConfig = {
 export type DashboardConfig = {
   mainNav: MainNavItem[]
   sidebarNav: SidebarNavItem[]
+  userNav: UserNavItem[]
 }
 
 export type MarketingConfig = {
