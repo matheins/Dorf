@@ -32,7 +32,10 @@ export default async function IndexPage() {
             feedback, leads, and opinions.
           </p>
           <div className="flex flex-col gap-2 md:flex-row">
-            <Link href="/login" className={cn(buttonVariants({ size: "lg" }))}>
+            <Link
+              href="/register"
+              className={cn(buttonVariants({ size: "lg" }))}
+            >
               Start building
             </Link>
             <Link
