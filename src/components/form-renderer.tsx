@@ -219,6 +219,7 @@ export const FormRenderer = ({
                           value={field.value as string}
                           type="email"
                           icon={"atSign"}
+                          autoComplete="email"
                         />
                       </FormControl>
                       {fieldItem.description && (
@@ -301,6 +302,7 @@ export const FormRenderer = ({
                           icon="link"
                           value={field.value as string}
                           type="url"
+                          autoComplete="url"
                         />
                       </FormControl>
                       {fieldItem.description && (
@@ -330,6 +332,7 @@ export const FormRenderer = ({
                           icon="phone"
                           value={field.value as string}
                           type="tel"
+                          autoComplete="tel"
                         />
                       </FormControl>
                       {fieldItem.description && (
