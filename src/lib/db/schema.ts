@@ -14,6 +14,8 @@ import { AdapterAccount } from "next-auth/adapters"
 
 export const users = mysqlTable("users", {
   id: varchar("id", { length: 255 }).notNull().primaryKey(),
+  createdAt: timestamp("created_at").defaultNow(),
+  updatedAt: timestamp("updated_at").onUpdateNow(),
   name: varchar("name", { length: 255 }),
   email: varchar("email", { length: 255 }).notNull(),
   emailVerified: timestamp("emailVerified", { mode: "date" }),
