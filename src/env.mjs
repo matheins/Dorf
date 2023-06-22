@@ -24,6 +24,8 @@ export const env = createEnv({
   },
   client: {
     NEXT_PUBLIC_APP_URL: z.string().min(1),
+    NEXT_PUBLIC_UMAMI_DOMAIN: z.string().min(1).optional(),
+    NEXT_PUBLIC_UMAMI_SITE_ID: z.string().min(1).optional(),
   },
   runtimeEnv: {
     NEXTAUTH_URL: process.env.NEXTAUTH_URL,
@@ -41,7 +43,9 @@ export const env = createEnv({
     KV_REST_API_TOKEN: process.env.KV_REST_API_TOKEN,
     KV_REST_API_READ_ONLY_TOKEN: process.env.KV_REST_API_READ_ONLY_TOKEN,
     QSTASH_CURRENT_SIGNING_KEY: process.env.QSTASH_CURRENT_SIGNING_KEY,
-    QSTASH_NEXT_SIGNING_KEY: process.env.QSTASH_NEXT_SIGNING_KEY
+    QSTASH_NEXT_SIGNING_KEY: process.env.QSTASH_NEXT_SIGNING_KEY,
+    NEXT_PUBLIC_UMAMI_DOMAIN: process.env.NEXT_PUBLIC_UMAMI_DOMAIN,
+    NEXT_PUBLIC_UMAMI_SITE_ID: process.env.NEXT_PUBLIC_UMAMI_SITE_ID,
   },
   skipValidation: process.env.SKIP_ENV_VALIDATION
 })

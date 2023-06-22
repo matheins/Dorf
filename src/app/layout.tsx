@@ -2,8 +2,10 @@ import "./globals.css"
 
 import { Inter as FontSans } from "next/font/google"
 import localFont from "next/font/local"
+import Script from "next/script"
 import { Analytics } from "@vercel/analytics/react"
 
+import { env } from "@/env.mjs"
 import { siteConfig } from "@/config/site"
 import { cn } from "@/lib/utils"
 import { Toaster } from "@/components/ui/toaster"
@@ -80,6 +82,12 @@ export default function RootLayout({
           <TailwindIndicator />
         </ThemeProvider>
       </body>
+      {process.env.NODE_ENV === "production" && (
+        <Script
+          src={`${env.NEXT_PUBLIC_UMAMI_DOMAIN}/script.js`}
+          data-website-id={env.NEXT_PUBLIC_UMAMI_SITE_ID}
+        />
+      )}
     </html>
   )
 }
