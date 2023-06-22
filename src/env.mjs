@@ -19,6 +19,8 @@ export const env = createEnv({
     KV_REST_API_URL: z.string().min(1),
     KV_REST_API_TOKEN: z.string().min(1),
     KV_REST_API_READ_ONLY_TOKEN: z.string().min(1),
+    QSTASH_CURRENT_SIGNING_KEY: z.string().min(1).optional(),
+    QSTASH_NEXT_SIGNING_KEY: z.string().min(1).optional(),
   },
   client: {
     NEXT_PUBLIC_APP_URL: z.string().min(1),
@@ -38,6 +40,8 @@ export const env = createEnv({
     KV_REST_API_URL: process.env.KV_REST_API_URL,
     KV_REST_API_TOKEN: process.env.KV_REST_API_TOKEN,
     KV_REST_API_READ_ONLY_TOKEN: process.env.KV_REST_API_READ_ONLY_TOKEN,
+    QSTASH_CURRENT_SIGNING_KEY: process.env.QSTASH_CURRENT_SIGNING_KEY,
+    QSTASH_NEXT_SIGNING_KEY: process.env.QSTASH_NEXT_SIGNING_KEY
   },
   skipValidation: process.env.SKIP_ENV_VALIDATION
 })
