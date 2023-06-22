@@ -66,4 +66,24 @@ export const columns: ColumnDef<WebhookEvent>[] = [
       return <div>{dayjs(form.createdAt).format("MMM D, YYYY - hh:mm")}</div>
     },
   },
+  {
+    accessorKey: "statusCode",
+    header: "Status Code",
+    cell: ({ row }) => {
+      const event = row.original
+
+      return (
+        <StatusBadge
+          className="capitalize"
+          variant={event.statusCode === 200 ? "success" : "error"}
+        >
+          {event.statusCode}
+        </StatusBadge>
+      )
+    },
+  },
+  {
+    accessorKey: "attemptCount",
+    header: "Attempts",
+  },
 ]
