@@ -1,4 +1,5 @@
 import {
+  Activity,
   AlertTriangle,
   ArrowRight,
   AtSign,
@@ -30,6 +31,7 @@ import {
   Trash,
   Twitter,
   User,
+  Webhook,
   X,
   type Icon as LucideIcon,
 } from "lucide-react"
@@ -87,6 +89,8 @@ export const Icons = {
       />
     </svg>
   ),
+  activity: Activity,
+  webhook: Webhook,
   menu: Menu,
   close: X,
   clock: ClockIcon,
