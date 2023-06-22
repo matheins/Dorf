@@ -3,11 +3,15 @@ import { and, eq } from "drizzle-orm"
 
 import { db } from "@/lib/db"
 import { forms, webhooks } from "@/lib/db/schema"
+import { cn } from "@/lib/utils"
+import { buttonVariants } from "@/components/ui/button"
 import { DataTable } from "@/components/ui/data-table"
 import { EmptyPlaceholder } from "@/components/empty-placeholder"
 import { DashboardHeader } from "@/components/header"
+import { Icons } from "@/components/icons"
 import { DashboardShell } from "@/components/shell"
 
+import { FormNav } from "../_components/form-nav"
 import { CreateWebhookButton } from "./_components/create-webhook-button"
 import { columns } from "./columns"
 
@@ -40,21 +44,22 @@ const Webhooks = async ({ params: { id } }: { params: { id: string } }) => {
 
   return (
     <DashboardShell>
+      <div>
+        <Link
+          className={cn(buttonVariants({ variant: "link" }), "-ml-2")}
+          href={"/forms"}
+        >
+          <Icons.arrowLeft className="mr-2 h-4 w-4" />
+          All forms
+        </Link>
+      </div>
       <DashboardHeader
-        heading={
-          <>
-            <span className="text-muted-foreground">...</span>
-            <span className="text-muted-foreground px-2">/</span>
-            <Link className="text-muted-foreground" href="/forms">
-              {title}
-            </Link>
-            <span className="text-muted-foreground px-2">/</span>
-            <span>Webhooks</span>
-          </>
-        }
+        heading={title}
+        text="Create webhooks to connect with other applications and keep track of your submissions."
       >
         <CreateWebhookButton formId={id} />
       </DashboardHeader>
+      <FormNav formId={id} />
       <div className="overflow-hidden px-2">
         {webhooks?.length ? (
           <DataTable columns={columns} data={webhooks} />
