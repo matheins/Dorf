@@ -22,6 +22,7 @@ export function SecretInput({ value }: { value: string }) {
   return (
     <div className="relative">
       <input
+        readOnly
         value={value}
         type={showSecret ? "text" : "password"}
         className="border-input ring-offset-background placeholder:text-muted-foreground focus-visible:ring-ring block w-full rounded-md border bg-transparent py-1.5 pl-3 pr-10  text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
