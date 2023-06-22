@@ -6,6 +6,7 @@ import { z } from "zod"
 
 import { db } from "@/lib/db"
 import { submissions } from "@/lib/db/schema"
+import { Event } from "@/lib/events"
 import { generateId } from "@/lib/id"
 import { ratelimit } from "@/lib/ratelimiter"
 
@@ -25,5 +26,14 @@ export const createSubmission = async (data: CreateSubmission) => {
     throw new Error("Too many requests")
   }
 
-  await db.insert(submissions).values({ ...submission, id: generateId() })
+  const id = generateId()
+  await db.insert(submissions).values({ ...submission, id })
+
+  const event = new Event("submission.created")
+
+  await event.emit({
+    formId: submission.formId,
+    data: JSON.stringify(submission?.data),
+    submissionId: id,
+  })
 }
