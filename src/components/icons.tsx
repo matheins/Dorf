@@ -1,5 +1,7 @@
 import {
+  Activity,
   AlertTriangle,
+  ArrowLeft,
   ArrowRight,
   AtSign,
   Calendar,
@@ -15,6 +17,7 @@ import {
   Hash,
   HelpCircle,
   Image,
+  Info,
   Laptop,
   Link,
   Loader2,
@@ -30,6 +33,7 @@ import {
   Trash,
   Twitter,
   User,
+  Webhook,
   X,
   type Icon as LucideIcon,
 } from "lucide-react"
@@ -87,6 +91,8 @@ export const Icons = {
       />
     </svg>
   ),
+  activity: Activity,
+  webhook: Webhook,
   menu: Menu,
   close: X,
   clock: ClockIcon,
@@ -101,9 +107,11 @@ export const Icons = {
   billing: CreditCard,
   ellipsis: MoreVertical,
   add: Plus,
+  info: Info,
   warning: AlertTriangle,
   user: User,
   arrowRight: ArrowRight,
+  arrowLeft: ArrowLeft,
   help: HelpCircle,
   pizza: Pizza,
   twitter: Twitter,

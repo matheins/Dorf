@@ -102,7 +102,7 @@ const TypographyInlineCode = React.forwardRef<
   HTMLUListElement,
   React.HTMLAttributes<HTMLUListElement>
 >(({ className, ...props }, ref) => (
-  <ul
+  <code
     ref={ref}
     className={cn(
       "bg-muted relative rounded px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold"
