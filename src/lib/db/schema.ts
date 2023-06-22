@@ -129,3 +129,47 @@ export const submissionsRelations = relations(submissions, ({ one }) => ({
     references: [forms.id],
   }),
 }))
+
+export const webhooks = mysqlTable("webhooks", {
+  id: varchar("id", { length: 12 }).primaryKey().notNull(),
+  createdAt: timestamp("created_at").defaultNow(),
+  updatedAt: timestamp("updated_at").onUpdateNow(),
+  formId: text("form_id").notNull(),
+  deleted: boolean("deleted").default(false).notNull(),
+  endpoint: text("endpoint").notNull(),
+  events: json("events"),
+  enabled: boolean("enabled").default(true).notNull(),
+  secretKey: varchar("secret_key", { length: 256 }).notNull(),
+})
+
+export const webhooksRelations = relations(webhooks, ({ one, many }) => ({
+  form: one(forms, {
+    fields: [webhooks.formId],
+    references: [forms.id],
+  }),
+  webhookEvents: many(webhookEvents),
+}))
+
+export const webhookEvents = mysqlTable("webhook_events", {
+  id: varchar("id", { length: 12 }).primaryKey().notNull(),
+  createdAt: timestamp("created_at").defaultNow(),
+  webhookId: text("webhook_id").notNull(),
+  submissionId: text("submission_id").notNull(),
+  event: varchar("event", { length: 256 }).notNull(),
+  statusCode: int("status_code"),
+  status: mysqlEnum("status", ["attempting", "failed", "success"]).default(
+    "attempting"
+  ),
+  lastAttempt: timestamp("last_attempt"),
+})
+
+export const webhookEventRelations = relations(webhookEvents, ({ one }) => ({
+  webhook: one(webhooks, {
+    fields: [webhookEvents.webhookId],
+    references: [webhooks.id],
+  }),
+  submission: one(submissions, {
+    fields: [webhookEvents.submissionId],
+    references: [submissions.id],
+  }),
+}))
