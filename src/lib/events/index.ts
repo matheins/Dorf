@@ -82,6 +82,11 @@ async function triggerWebhooks({
               statusCode: postRes?.status,
               status: postRes?.status === 200 ? "success" : "attempting",
               lastAttempt: now,
+              nextAttempt:
+                postRes?.status === 200
+                  ? undefined
+                  : new Date(now.setMinutes(now.getMinutes() + 5)),
+              attemptCount: 1,
             })
             .where(eq(webhookEvents.id, id))
         }
@@ -92,7 +97,7 @@ async function triggerWebhooks({
   }
 }
 
-async function postToEnpoint({
+export async function postToEnpoint({
   endpoint,
   event,
   data,

@@ -161,6 +161,8 @@ export const webhookEvents = mysqlTable("webhook_events", {
     "attempting"
   ),
   lastAttempt: timestamp("last_attempt"),
+  nextAttempt: timestamp("next_attempt"),
+  attemptCount: int("attempt_count").default(0),
 })
 
 export const webhookEventRelations = relations(webhookEvents, ({ one }) => ({
