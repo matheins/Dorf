@@ -41,7 +41,7 @@ Dorf is an open-source visual form builder to easily gather feedback, leads and 
 ## Development
 
 1. Clone this repo
-2. cp .env.local .env.local
+2. cp .env.example .env.local
 3. Set NEXTAUTH_SECRET in `.env.local` with value returned when running `openssl rand -base64 32` in your terminal
 4. Configure Github auth provider by following [this guide](https://authjs.dev/getting-started/oauth-tutorial#2-configuring-oauth-provider)
 5. Set DATABASE_URL in `.env.local` to the connection string of your mysql database (either locally running or a [Planetscale](https://planetscale.com/) development branch). Format should be `mysql://USER:PASSWORD@HOST/DATABASE?ssl={"rejectUnauthorized":true}`
