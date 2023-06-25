@@ -185,7 +185,7 @@ export const feedbacks = mysqlTable("feedback", {
   text: text("text").notNull(),
   url: varchar("url", { length: 256 }).notNull(),
   ua: varchar("ua", { length: 256 }).notNull(),
-  userId: varchar("id", { length: 12 }),
+  userId: varchar("userId", { length: 12 }),
 })
 
 export const feedbackRelations = relations(feedbacks, ({ one }) => ({
