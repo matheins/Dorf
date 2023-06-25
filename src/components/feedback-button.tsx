@@ -22,7 +22,7 @@ import { Textarea } from "./ui/textarea"
 import { toast } from "./ui/use-toast"
 
 const formSchema = z.object({
-  text: z.string().min(1),
+  text: z.string().min(1).max(512),
 })
 
 type FormSchema = z.infer<typeof formSchema>
