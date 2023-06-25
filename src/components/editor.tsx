@@ -4,6 +4,7 @@ import Link from "next/link"
 import { setFormPublished } from "@/actions/forms"
 import { InferModel } from "drizzle-orm"
 import { CircleIcon, PlusCircleIcon, ShareIcon } from "lucide-react"
+import { User } from "next-auth"
 import { Form } from "react-hook-form"
 import { useHotkeys } from "react-hotkeys-hook"
 
@@ -63,7 +64,13 @@ const copyLinkToClipboard = async ({ formId }: { formId: string }) => {
   })
 }
 
-export const Editor = ({ form }: { form: FormWithFields }) => {
+export const Editor = ({
+  form,
+  user,
+}: {
+  form: FormWithFields
+  user: User
+}) => {
   useHotkeys("mod+c", () => {
     if (!form.published) return
     copyLinkToClipboard({ formId: form.id })
@@ -116,7 +123,7 @@ export const Editor = ({ form }: { form: FormWithFields }) => {
         </div>
 
         <div className="flex gap-4">
-          <FeedbackButton className="hidden md:block" />
+          <FeedbackButton className="hidden md:block" userId={user.id} />
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button disabled={!form.published}>

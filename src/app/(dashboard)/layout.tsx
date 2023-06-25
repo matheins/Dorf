@@ -28,7 +28,7 @@ export default async function DashboardLayout({
             <Icons.logoWord className="w-24" />
           </Link>
           <div className="flex gap-4">
-            <FeedbackButton size={"sm"} />
+            <FeedbackButton size={"sm"} userId={user.id} />
             <UserAccountNav
               user={{
                 name: user.name,

@@ -2,6 +2,7 @@ import { eq } from "drizzle-orm"
 
 import { db } from "@/lib/db"
 import { forms } from "@/lib/db/schema"
+import { getCurrentUser } from "@/lib/session"
 import { Editor } from "@/components/editor"
 
 const getForm = async ({ id }: { id: string }) => {
@@ -23,8 +24,11 @@ const getForm = async ({ id }: { id: string }) => {
 
 const EditForm = async ({ params: { id } }: { params: { id: string } }) => {
   const form = await getForm({ id })
+  const user = await getCurrentUser()
 
-  return <Editor form={form} />
+  if (!user) return null
+
+  return <Editor form={form} user={user} />
 }
 
 export default EditForm

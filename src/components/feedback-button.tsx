@@ -1,13 +1,22 @@
 "use client"
 
+import React from "react"
 import { createFeedback } from "@/actions/feedback"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { VariantProps } from "class-variance-authority"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
 
+import { Icons } from "./icons"
 import { Button, buttonVariants } from "./ui/button"
-import { Form, FormControl, FormField, FormItem, FormMessage } from "./ui/form"
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "./ui/form"
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover"
 import { Textarea } from "./ui/textarea"
 import { toast } from "./ui/use-toast"
@@ -22,9 +31,14 @@ export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
   asChild?: boolean
+  userId?: string
 }
 
-export async function FeedbackButton(props: ButtonProps) {
+export function FeedbackButton(props: ButtonProps) {
+  //   const session = useSession()
+  const [isOpen, setIsOpen] = React.useState(false)
+  const [isLoading, setIsLoading] = React.useState(false)
+
   const form = useForm<FormSchema>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -35,23 +49,27 @@ export async function FeedbackButton(props: ButtonProps) {
   async function onSubmit(data: FormSchema) {
     const ua = navigator.userAgent
     const url = window.location.href
-
+    setIsLoading(true)
     await createFeedback({
       ...data,
       ua,
       url,
+      userId: props.userId,
     })
 
-    // form.reset()
+    setIsOpen(false)
+    setIsLoading(false)
+
+    form.reset()
 
     toast({
       title: "Feedback submitted",
-      description: "Thanks for your feedback! We really appreciate it 🫶",
+      description: "Thanks for your feedback 🫶",
     })
   }
 
   return (
-    <Popover>
+    <Popover open={isOpen} onOpenChange={setIsOpen}>
       <PopoverTrigger asChild>
         <Button variant={"outline"} {...props}>
           Feedback
@@ -65,6 +83,8 @@ export async function FeedbackButton(props: ButtonProps) {
               name="text"
               render={({ field }) => (
                 <FormItem>
+                  <FormLabel>Description (optional)</FormLabel>
+
                   <FormControl>
                     <Textarea
                       placeholder="Leave some feedback..."
@@ -77,7 +97,10 @@ export async function FeedbackButton(props: ButtonProps) {
               )}
             />
             <div className="flex">
-              <Button type="submit" size={"sm"}>
+              <Button type="submit" size={"sm"} disabled={isLoading}>
+                {isLoading && (
+                  <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />
+                )}
                 Submit
               </Button>
             </div>
