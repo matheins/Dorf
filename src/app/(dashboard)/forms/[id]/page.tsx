@@ -59,7 +59,6 @@ const Form = async ({ params: { id } }: { params: { id: string } }) => {
         </div>
       </DashboardHeader>
       <FormNav formId={id} />
-      {/* @ts-expect-error Async Server Component */}
       <SubmissionsTable formId={form.id} />
     </DashboardShell>
   )

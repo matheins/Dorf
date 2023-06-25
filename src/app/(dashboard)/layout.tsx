@@ -1,10 +1,9 @@
 import Link from "next/link"
 import { notFound } from "next/navigation"
 
-import { dashboardConfig } from "@/config/dashboard"
 import { getCurrentUser } from "@/lib/session"
+import { FeedbackButton } from "@/components/feedback-button"
 import { Icons } from "@/components/icons"
-import { DashboardNav } from "@/components/nav"
 import { SiteFooter } from "@/components/site-footer"
 import { UserAccountNav } from "@/components/user-account-nav"
 
@@ -28,13 +27,16 @@ export default async function DashboardLayout({
           <Link href="/dashboard">
             <Icons.logoWord className="w-24" />
           </Link>
-          <UserAccountNav
-            user={{
-              name: user.name,
-              image: user.image,
-              email: user.email,
-            }}
-          />
+          <div className="flex gap-4">
+            <FeedbackButton size={"sm"} userId={user.id} />
+            <UserAccountNav
+              user={{
+                name: user.name,
+                image: user.image,
+                email: user.email,
+              }}
+            />
+          </div>
         </div>
       </header>
       <div className="container flex-1 gap-12">
