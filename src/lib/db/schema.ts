@@ -177,3 +177,20 @@ export const webhookEventRelations = relations(webhookEvents, ({ one }) => ({
     references: [submissions.id],
   }),
 }))
+
+export const feedbacks = mysqlTable("feedback", {
+  id: varchar("id", { length: 12 }).primaryKey().notNull(),
+  createdAt: timestamp("created_at").defaultNow(),
+  updatedAt: timestamp("updated_at").onUpdateNow(),
+  text: text("text").notNull(),
+  url: varchar("url", { length: 256 }).notNull(),
+  ua: varchar("ua", { length: 256 }).notNull(),
+  userId: varchar("id", { length: 12 }),
+})
+
+export const feedbackRelations = relations(feedbacks, ({ one }) => ({
+  user: one(users, {
+    fields: [feedbacks.userId],
+    references: [users.id],
+  }),
+}))
