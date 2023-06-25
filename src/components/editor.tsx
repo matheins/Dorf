@@ -13,6 +13,7 @@ import { cn } from "@/lib/utils"
 
 import { EditFieldCard } from "./edit-field-card"
 import { EditFieldSheet } from "./edit-field-sheet"
+import { FeedbackButton } from "./feedback-button"
 import { FormRenderer } from "./form-renderer"
 import { Icons } from "./icons"
 import { Button, buttonVariants } from "./ui/button"
@@ -114,26 +115,29 @@ export const Editor = ({ form }: { form: FormWithFields }) => {
           </DropdownMenu>
         </div>
 
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button disabled={!form.published}>
-              Share <ShareIcon className="ml-2 h-4 w-4" />
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent className="w-56">
-            <DropdownMenuGroup>
-              <DropdownMenuItem
-                onClick={() => {
-                  copyLinkToClipboard({ formId: form.id })
-                }}
-              >
-                <Icons.copy className="mr-2 h-4 w-4" />
-                <span>Copy link</span>
-                <DropdownMenuShortcut>⌘C</DropdownMenuShortcut>
-              </DropdownMenuItem>
-            </DropdownMenuGroup>
-          </DropdownMenuContent>
-        </DropdownMenu>
+        <div className="flex gap-4">
+          <FeedbackButton className="hidden md:block" />
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button disabled={!form.published}>
+                Share <ShareIcon className="ml-2 h-4 w-4" />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className="w-56">
+              <DropdownMenuGroup>
+                <DropdownMenuItem
+                  onClick={() => {
+                    copyLinkToClipboard({ formId: form.id })
+                  }}
+                >
+                  <Icons.copy className="mr-2 h-4 w-4" />
+                  <span>Copy link</span>
+                  <DropdownMenuShortcut>⌘C</DropdownMenuShortcut>
+                </DropdownMenuItem>
+              </DropdownMenuGroup>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </div>
       </div>
       <Tabs defaultValue="editor" className="container max-w-3xl">
         <TabsList className="mx-auto mb-8 grid w-[400px] grid-cols-2">
