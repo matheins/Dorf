@@ -23,8 +23,6 @@ body:
     attributes:
       label: Link to reproduction
       description: Please provide a link to a reproduction of the bug. Issues without a reproduction repo may be ignored.
-    validations:
-      required: true
   - type: textarea
     attributes:
       label: To reproduce
