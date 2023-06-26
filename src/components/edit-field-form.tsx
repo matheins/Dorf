@@ -80,7 +80,7 @@ export const EditFieldForm = ({
       required: fieldData?.required || false,
       type: fieldData?.type || undefined,
       formId: fieldData?.formId || formId,
-      options: fieldData?.options?.split(",") || [],
+      options: fieldData?.options?.length ? fieldData.options.split(",") : [],
     },
   })
 
