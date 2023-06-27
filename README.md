@@ -62,8 +62,10 @@ KV_REST_API_TOKEN=
 KV_REST_API_READ_ONLY_TOKEN=
 ```
 
-9. Run `pnpm dev` (if you haven't installed pnpm yet follow [this guide](https://pnpm.io/installation))
-10. Happy coding 🎉
+9. Run `pnpm i` to install dependencies (if you haven't installed pnpm yet follow [this guide](https://pnpm.io/installation)) 
+10. Run `pnpm run db:push` to push the database schema to your database
+11. Run `pnpm dev` to start the development server
+12. Happy coding 🎉
 
 ## Contributing
 
