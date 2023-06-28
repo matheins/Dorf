@@ -38,6 +38,7 @@ export function FeedbackButton(props: ButtonProps) {
   //   const session = useSession()
   const [isOpen, setIsOpen] = React.useState(false)
   const [isLoading, setIsLoading] = React.useState(false)
+  const { userId, ...rest } = props
 
   const form = useForm<FormSchema>({
     resolver: zodResolver(formSchema),
@@ -54,7 +55,7 @@ export function FeedbackButton(props: ButtonProps) {
       ...data,
       ua,
       url,
-      userId: props.userId,
+      userId,
     })
 
     setIsOpen(false)
@@ -71,7 +72,7 @@ export function FeedbackButton(props: ButtonProps) {
   return (
     <Popover open={isOpen} onOpenChange={setIsOpen}>
       <PopoverTrigger asChild>
-        <Button variant={"outline"} {...props}>
+        <Button variant={"outline"} {...rest}>
           Feedback
         </Button>
       </PopoverTrigger>
