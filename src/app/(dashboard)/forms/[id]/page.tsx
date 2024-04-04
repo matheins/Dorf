@@ -1,7 +1,9 @@
 import Link from "next/link"
-import { eq } from "drizzle-orm"
+import { notFound } from "next/navigation"
+import { and, eq } from "drizzle-orm"
 import { ExternalLinkIcon } from "lucide-react"
 
+import { auth } from "@/lib/auth"
 import { db } from "@/lib/db"
 import { forms } from "@/lib/db/schema"
 import { cn } from "@/lib/utils"
@@ -15,22 +17,25 @@ import { FormNav } from "./_components/form-nav"
 import { SubmissionsTable } from "./_components/submissions-table"
 
 const getForm = async ({ id }: { id: string }) => {
+  const session = await auth()
+  if (!session) return undefined
+
   const form = await db.query.forms.findFirst({
-    where: eq(forms.id, id),
+    where: and(eq(forms.id, id), eq(forms.userId, session.user.id)),
     with: {
       submissions: true,
     },
   })
 
-  if (!form) {
-    throw new Error("Form not found")
-  }
+  if (!form) return undefined
 
   return form
 }
 
 const Form = async ({ params: { id } }: { params: { id: string } }) => {
   const form = await getForm({ id })
+
+  if (!form) notFound()
 
   return (
     <DashboardShell>
